@@ -4,15 +4,24 @@ import numpy as np
 import scipy
 import os
 import sys
+import argparse
 
 magma_seeds:Dict[str,List[np.ndarray]]=dict()
 
-subject=sys.argv[1]
+arg_parser=argparse.ArgumentParser(prog='distance.py')
+arg_parser.add_argument('dir_1',action='store',type=str,help='Base seed directory')
+arg_parser.add_argument('dir_2',action='store',type=str,help='Target seed directory to compare')
+arg_parser.add_argument('subject',action='store',type=str,help='Target subject')
+args=arg_parser.parse_args(sys.argv[1:])
+
+subject=args.subject
+dir_1=os.path.abspath(args.dir_1)
+dir_2=os.path.abspath(args.dir_2)
 
 # Read magma seeds
-for path, directories, files in os.walk(f'seeds/{subject}'):
+for path, directories, files in os.walk(f'{dir_2}/{subject}'):
     for file in files:
-        rel_path=path.removeprefix(f'seeds/{subject}/')
+        rel_path=path.removeprefix(f'{dir_2}/{subject}/')
         if len(rel_path) <= 1:
             # A root path
             continue
@@ -23,9 +32,9 @@ for path, directories, files in os.walk(f'seeds/{subject}'):
             data=f.read()
             magma_seeds[rel_path].append(np.frombuffer(data,dtype=np.int8))
 
-for path, dirs, files in os.walk(f'magma-seeds/{subject}'):
+for path, dirs, files in os.walk(f'{dir_1}/{subject}'):
     for file in files:
-        rel_path = path.removeprefix(f'magma-seeds/{subject}/')
+        rel_path = path.removeprefix(f'{dir_1}/{subject}/')
         if len(rel_path) <= 1:
             # A root path
             continue
