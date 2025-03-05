@@ -10,6 +10,7 @@ This repo contains a lot of seeds for efficient fuzzing.
 - [Magma](https://github.com/HexHive/magma)
   - libtiff
   - libxml2
+- Original tests in each project
 
 ## Subjects
 
