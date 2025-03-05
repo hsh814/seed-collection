@@ -2,6 +2,13 @@
 
 This repo contains a lot of seeds for efficient fuzzing.
 
+## Source
+- https://github.com/strongcourage/fuzzing-corpus
+- https://github.com/nimrodpar/Labeled-Elfs
+- https://github.com/openpreserve/jpylyzer-test-files
+- https://github.com/salmonx/seeds
+
+
 ## Subjects
 
 This repo contains the following subjects.
@@ -43,3 +50,4 @@ magma-seeds/libtiff/tiff_read_rgba_fuzzer/36.tif: mean: 0.4393050165856595, medi
 Here, `magma-seeds/*/*.tif` represents the seed stored in `<dir1>`.
 `mean` and `median` represents a mean and median between a seed in `<dir1>` and every seed in `<dir2>`.
 `len` represents a number of seeds stored in `<dir2>`.
+
