@@ -6,7 +6,7 @@ import os
 import sys
 import argparse
 
-magma_seeds:Dict[str,List[np.ndarray]]=dict()
+new_seeds:Dict[str,List[np.ndarray]]=dict()
 
 arg_parser=argparse.ArgumentParser(prog='distance.py')
 arg_parser.add_argument('dir_1',action='store',type=str,help='Base seed directory')
@@ -18,7 +18,6 @@ subject=args.subject
 dir_1=os.path.abspath(args.dir_1)
 dir_2=os.path.abspath(args.dir_2)
 
-# Read magma seeds
 for path, directories, files in os.walk(f'{dir_2}/{subject}'):
     for file in files:
         rel_path=path.removeprefix(f'{dir_2}/{subject}/')
@@ -26,11 +25,11 @@ for path, directories, files in os.walk(f'{dir_2}/{subject}'):
             # A root path
             continue
 
-        if rel_path not in magma_seeds:
-            magma_seeds[rel_path]=[]
+        if rel_path not in new_seeds:
+            new_seeds[rel_path]=[]
         with open(os.path.join(path,file),'rb') as f:
             data=f.read()
-            magma_seeds[rel_path].append(np.frombuffer(data,dtype=np.int8))
+            new_seeds[rel_path].append(np.frombuffer(data, dtype=np.int8))
 
 for path, dirs, files in os.walk(f'{dir_1}/{subject}'):
     for file in files:
@@ -44,8 +43,8 @@ for path, dirs, files in os.walk(f'{dir_1}/{subject}'):
 
         data_array=np.frombuffer(data,dtype=np.int8)
         dists=[]
-        for base in magma_seeds:
-            for base_data in magma_seeds[base]:
+        for base in new_seeds:
+            for base_data in new_seeds[base]:
                 if len(data_array) > len(base_data):
                     base_data=np.pad(base_data,(0,len(data_array)-len(base_data)),constant_values=(0,0))
                 else:

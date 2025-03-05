@@ -7,7 +7,9 @@ This repo contains a lot of seeds for efficient fuzzing.
 - https://github.com/nimrodpar/Labeled-Elfs
 - https://github.com/openpreserve/jpylyzer-test-files
 - https://github.com/salmonx/seeds
-
+- [Magma](https://github.com/HexHive/magma)
+  - libtiff
+  - libxml2
 
 ## Subjects
 
@@ -19,13 +21,6 @@ This repo contains the following subjects.
 * libxml2
 * zziplib
 
-## Collections
-
-This repo contains the seeds from the following collections:
-* [Magma](https://github.com/HexHive/magma)
-  * libtiff
-  * libxml2
-
 ## Distance between Two Seeds
 
 We provide a Python script to compute a distance between two seeds.
@@ -35,9 +30,9 @@ Run following command to compute:
 python3 distance.py <dir1> <dir2> <subject>
 ```
 
-For example, to compute `magma-seeds` and `seeds` for `libtiff`:
+For example, to compute `magma-seeds` and `original-seeds` for `libtiff`:
 ```bash
-python3 distance.py magma-seeds seeds libtiff
+python3 distance.py magma-original-seeds original-seeds libtiff
 ```
 
 The output will be:
