@@ -10,4 +10,4 @@ def parse_meta(file: str) -> sbsv.parser:
 
 if __name__ == '__main__':
     result = parse_meta('meta.sbsv')
-    print(result)
+    print(result.data)
