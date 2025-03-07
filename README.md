@@ -22,6 +22,15 @@ This repo contains the following subjects.
 * libxml2
 * zziplib
 
+## Directory structures
+* `original-seeds`: `exploit` and 50 initial seeds
+* `new-seeds`: New seeds collected by us
+* `original-seeds-log`: Dry run logs of `original-seeds` contains branch and DUG coverage
+* `new-seeds-log`: Dry run logs of `new-seeds` contains branch and DUG coverage
+* `meta.sbsv`: A map between `new-seeds` and original collection
+* `seed-filtering.py`: A Python script to prune too large seeds
+* `vulnfix.toml`: Input formats for each bugs (e.g. libtiff: tiff)
+
 ## Distance between Two Seeds
 
 We provide a Python script to compute a distance between two seeds.
