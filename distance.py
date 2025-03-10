@@ -12,6 +12,7 @@ for path, dirnames, filenames in os.walk('new-seeds-log'):
             res=subprocess.run(f'gunzip {file}',shell=True,cwd=path)
             if res.returncode!=0:
                 raise RuntimeError(f'gunzip failed for {file}')
+            file.removesuffix('.gz')
 
         subject=path.split('/')[-1]
         version=file.split('.')[0]
