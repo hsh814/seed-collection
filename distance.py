@@ -12,7 +12,7 @@ for path, dirnames, filenames in os.walk('new-seeds-log'):
             res=subprocess.run(f'gunzip {file}',shell=True,cwd=path)
             if res.returncode!=0:
                 raise RuntimeError(f'gunzip failed for {file}')
-            file.removesuffix('.gz')
+            file=file.removesuffix('.gz')
 
         subject=path.split('/')[-1]
         version=file.split('.')[0]
@@ -38,6 +38,8 @@ for path, dirnames, filenames in os.walk('new-seeds-log'):
             _i=0
             while _i!=-1:
                 _i=branch_cov_str.find('1',_i)
+                if _i==-1:
+                    break
                 branch_cov.append(_i)
                 _i+=1
             data_dict[val['file']]={
