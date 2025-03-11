@@ -35,6 +35,17 @@ subjects = [
   # "zziplib/cve_2017_5976"
 ]
 
+
+def get_distance(subject: str):
+    result_file = os.path.join(VULNFIX_DIR, "data", subject, "cludafl_out", "out-dry-run", "dry_run_results.sbsv")
+    # Get distance from result file
+    rank_data = list()
+    rank_dir = os.path.join(SEED_COLLECTION_DIR, "rank", subject)
+    os.makedirs(rank_dir, exist_ok=True)
+    with open(os.path.join(rank_dir, "rank.csv"), "w") as f:
+        for rank in rank_data:
+            f.write(f"{rank}\n")
+
 def run(subject: str):
     print(f'running {subject}')
     with open(os.path.join(SEED_COLLECTION_DIR, "vulnfix.toml")) as f:
@@ -45,6 +56,7 @@ def run(subject: str):
     env["AFL_OPTS_COMMON_OVERRIDE"] = "-t 2000+ -m none -d -s dafl -r"
     env["SEED_DIR_OVERRIDE"] = os.path.join(SEED_COLLECTION_DIR, "new-seeds", file_type)
     subprocess.run(f"./run-cludafl-single.sh dry-run", shell=True, env=env, cwd=os.path.join(VULNFIX_DIR, "data", subject))
+    get_distance(subject)
 
 if __name__ == "__main__":
     for subject in subjects:
