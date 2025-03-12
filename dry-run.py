@@ -158,10 +158,9 @@ def run(subject: str):
     env["AFL_OPTS_COMMON_OVERRIDE"] = "-t 2000+ -m none -d -s dafl -r"
     env["SEED_DIR_OVERRIDE"] = os.path.join(SEED_COLLECTION_DIR, "new-seeds", file_type)
     subprocess.run(f"./run-cludafl-single.sh dry-run", shell=True, env=env, cwd=os.path.join(VULNFIX_DIR, "data", subject))
-    get_rank(subject)
 
 if __name__ == "__main__":
     for subject in subjects:
-        # run(subject)
+        run(subject)
         get_rank(subject)
 
