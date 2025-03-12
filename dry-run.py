@@ -19,12 +19,12 @@ subjects = [
   # "coreutils/gnubug_19784",
   # "coreutils/gnubug_25003",
   # "coreutils/gnubug_25023",
-  "coreutils/gnubug_26545",
-  "jasper/cve_2016_8691",
-  "jasper/cve_2016_9557",
-  "libjpeg/cve_2012_2806",
-  "libjpeg/cve_2017_15232",
-  "libming/cve_2016_9264",
+#   "coreutils/gnubug_26545",
+#   "jasper/cve_2016_8691",
+#   "jasper/cve_2016_9557",
+#   "libjpeg/cve_2012_2806",
+#   "libjpeg/cve_2017_15232",
+#   "libming/cve_2016_9264",
   # "libtiff/bugzilla_2633",
   # "libtiff/cve_2016_5321",
   # "libtiff/cve_2016_9532",
@@ -54,6 +54,8 @@ def clustering(data: List[dict]) -> List[dict]:
     print_log(f"Clustering: {len(data)} data points into {k} clusters")
     for cluster_id in range(kmeans.n_clusters):
         mem_indices = np.where(kmeans.labels_ == cluster_id)[0]
+        if len(mem_indices) == 0:
+            continue
         cluster = {
             'centroid': kmeans.cluster_centers_[cluster_id].tolist(),
             'members': [data[i] for i in mem_indices]
@@ -102,6 +104,7 @@ def get_rank(subject: str):
     clusters = clustering(data_list)
     file_cluster_map = dict()
     cluster_scores = dict()
+    print_log(f"{subject} Clustering result: {len(clusters)} clusters")
     for cluster_id, cluster in enumerate(clusters):
         score = 0
         for member in cluster['members']:
