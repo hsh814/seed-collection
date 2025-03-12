@@ -19,12 +19,12 @@ subjects = [
   # "coreutils/gnubug_19784",
   # "coreutils/gnubug_25003",
   # "coreutils/gnubug_25023",
-#   "coreutils/gnubug_26545",
-#   "jasper/cve_2016_8691",
-#   "jasper/cve_2016_9557",
-#   "libjpeg/cve_2012_2806",
-#   "libjpeg/cve_2017_15232",
-#   "libming/cve_2016_9264",
+  "coreutils/gnubug_26545",
+  "jasper/cve_2016_8691",
+  "jasper/cve_2016_9557",
+  "libjpeg/cve_2012_2806",
+  "libjpeg/cve_2017_15232",
+  "libming/cve_2016_9264",
   # "libtiff/bugzilla_2633",
   # "libtiff/cve_2016_5321",
   # "libtiff/cve_2016_9532",
@@ -63,6 +63,9 @@ def clustering(data: List[dict]) -> List[dict]:
 
 def get_rank(subject: str):
     result_file = os.path.join(VULNFIX_DIR, "data", subject, "cludafl_out", "out-dry-run", "dry_run_results.sbsv")
+    if not os.path.exists(result_file):
+        print_log(f"Skip {subject} because of missing result file")
+        return
     parser=sbsv.parser()
     parser.add_schema("[seed] [file: str] [hash: int] [dfg: int] [res: int] [time: int] [target: int] [vec: str] [trace: str]")
     with open(result_file) as f:
@@ -154,9 +157,14 @@ def run(subject: str):
         config = toml.load(f)
     subj, vers = subject.split("/")
     file_type = config[subj][vers]
+    if file_type == "unknown":
+        print_log(f"Skip {subject} because of unknown file type")
+        return
     env = os.environ.copy()
     env["AFL_OPTS_COMMON_OVERRIDE"] = "-t 2000+ -m none -d -s dafl -r"
     env["SEED_DIR_OVERRIDE"] = os.path.join(SEED_COLLECTION_DIR, "new-seeds", file_type)
+    print_log(f"Run {subject} at {os.path.join(VULNFIX_DIR, 'data', subject)}")
+    print_log(f"SEED_DIR_OVERRIDE={env['SEED_DIR_OVERRIDE']} AFL_OPTS_COMMON_OVERRIDE={env['AFL_OPTS_COMMON_OVERRIDE']} ./run-cludafl-single.sh dry-run")
     subprocess.run(f"./run-cludafl-single.sh dry-run", shell=True, env=env, cwd=os.path.join(VULNFIX_DIR, "data", subject))
 
 if __name__ == "__main__":
