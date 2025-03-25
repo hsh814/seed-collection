@@ -1,0 +1,1 @@
+-a --suffix-length=6 --separator=%

@@ -1,0 +1,1 @@
+-n --number=6 --unbuffered --verbose --separator=|

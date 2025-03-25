@@ -1,0 +1,1 @@
+-d, --double-space -D, --date-format=FORMAT -e[CHAR[WIDTH]], --expand-tabs[=CHAR[WIDTH] -F, -f, --form-feed -h, --header=HEADER

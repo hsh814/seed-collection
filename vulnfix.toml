@@ -5,9 +5,9 @@ cve_2017_15025 = "elf"
 
 [coreutils]
 gnubug_19784 = "unknown"
-gnubug_25003 = "unknown"
-gnubug_25023 = "unknown"
-gnubug_26545 = "unknown"
+gnubug_25003 = "coreutils-seeds/gnubug_25003"
+gnubug_25023 = "coreutils-seeds/gnubug_25023"
+gnubug_26545 = "coreutils-seeds/gnubug_26545"
 
 [jasper]
 cve_2016_8691 = "jpeg"

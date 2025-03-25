@@ -1,0 +1,1 @@
+--random-source=FILE -s 800M -u --remove=wipesync -v -x --zero

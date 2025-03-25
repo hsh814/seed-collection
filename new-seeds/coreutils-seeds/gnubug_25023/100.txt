@@ -1,0 +1,1 @@
+--date-format=YYYY-MM-DD --expand-tabs=TAB[8]

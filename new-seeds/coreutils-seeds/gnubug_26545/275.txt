@@ -1,0 +1,1 @@
+--random-source=/dev/random -s 500K -u --remove=wipe --verbose --exact --zero

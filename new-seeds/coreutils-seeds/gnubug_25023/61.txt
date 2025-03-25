@@ -1,0 +1,1 @@
+-N, --first-line-number=NUMBER -o, --indent=MARGIN -r, --no-file-warnings -s[CHAR], --separator[=CHAR] -S[STRING], --sep-string[=STRING]

@@ -1,0 +1,1 @@
+--random-source=/dev/zero -s 1K -u --remove=wipe -v -x --zero

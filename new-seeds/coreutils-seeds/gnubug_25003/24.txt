@@ -1,0 +1,1 @@
+-a -e --suffix-length=6 --elide-empty-files

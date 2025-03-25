@@ -1,0 +1,1 @@
+-s --separator -S --sep-string -t --omit-header -T --omit-pagination

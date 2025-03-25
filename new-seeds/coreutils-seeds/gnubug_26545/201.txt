@@ -1,0 +1,1 @@
+-s500M --remove=wipesync --exact

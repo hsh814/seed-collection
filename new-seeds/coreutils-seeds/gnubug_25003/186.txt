@@ -1,0 +1,1 @@
+--separator=@ --bytes=3M --line-bytes=512K

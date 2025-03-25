@@ -1,0 +1,1 @@
+--random-source=FILE -s 10G -u --remove=wipesync -v --zero

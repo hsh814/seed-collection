@@ -1,0 +1,1 @@
+--filter=awk '{print $1}' --verbose

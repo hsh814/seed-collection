@@ -1,0 +1,1 @@
+-n 2 --random-source=FILE -s 600M -u --remove=wipe -v -x --zero

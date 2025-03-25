@@ -1,0 +1,1 @@
+-n --number=8 --unbuffered
