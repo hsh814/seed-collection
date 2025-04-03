@@ -1,0 +1,1 @@
+-f -n --random-source=FILE -s 10M -u --remove=wipe --verbose --exact --zero

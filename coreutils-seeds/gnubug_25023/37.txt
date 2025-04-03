@@ -1,0 +1,1 @@
+-i[CHAR[WIDTH]], --output-tabs[=CHAR[WIDTH] -J, --join-lines -l, --length=PAGE_LENGTH -m, --merge -n[SEP[DIGITS]], --number-lines[=SEP[DIGITS]

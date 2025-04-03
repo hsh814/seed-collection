@@ -1,0 +1,1 @@
+--random-source=FILE -s 50M -u --remove=wipe -v -x --zero

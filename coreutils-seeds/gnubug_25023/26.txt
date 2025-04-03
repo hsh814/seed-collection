@@ -1,0 +1,1 @@
+--number-lines --number-lines=TAB --number-lines=TAB[5] --number-lines=TAB[5][3]

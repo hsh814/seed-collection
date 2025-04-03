@@ -1,0 +1,1 @@
+-t, --omit-header -T, --omit-pagination -v, --show-nonprinting -w, --width=PAGE_WIDTH -W, --page-width=PAGE_WIDTH

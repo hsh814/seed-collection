@@ -1,0 +1,1 @@
+-s --size=N -u --verbose --exact

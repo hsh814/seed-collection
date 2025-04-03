@@ -1,0 +1,1 @@
+-b -e --bytes=5M --elide-empty-files

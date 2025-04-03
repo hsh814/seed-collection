@@ -1,0 +1,1 @@
+-f -n 6 --random-source=FILE -s 15G -u --remove=wipesync --verbose --zero

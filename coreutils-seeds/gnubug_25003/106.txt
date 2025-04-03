@@ -1,0 +1,1 @@
+--filter='sort' -f='grep word'

@@ -1,0 +1,1 @@
+-n --number-lines -N --first-line-number=NUMBER -o --indent=MARGIN -r --no-file-warnings

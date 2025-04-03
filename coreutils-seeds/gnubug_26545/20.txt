@@ -1,0 +1,1 @@
+-f -n --random-source=/dev/zero -s 50K -u --remove=unlink --verbose --exact --zero

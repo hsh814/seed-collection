@@ -1,0 +1,1 @@
+-f -n --random-source=/dev/urandom -s 50M -u --verbose -x -z
